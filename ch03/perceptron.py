@@ -1,12 +1,11 @@
 import tensorflow as tf
-from tensorflow_core.python.keras.losses import mse
-from tensorflow_core.python.keras.models import Sequential
-from tensorflow_core.python.keras.optimizers import SGD
-from tensorflow_core.python.layers.core import Dense
-
 tf.random.set_seed(777)
 
 import numpy as np
+from tensorflow.keras.models import Sequential
+from tensorflow.keras.layers import Dense
+from tensorflow.keras.optimizers import SGD
+from tensorflow.keras.losses import mse
 
 x = np.array([[0, 0], [1, 0], [0, 1], [1, 1]])
 y = np.array([[0], [1], [1], [1]])
@@ -24,3 +23,4 @@ model.compile(optimizer=SGD(),
 
 # 학습시키기
 model.fit(x, y, epochs=500)
+print(model.get_weights())
